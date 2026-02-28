@@ -289,7 +289,13 @@ const config = async (options: {
             },
         }),
         {
-            ignores: ['/node_modules/*', 'node_modules/*', 'dist/*', '/dist/*'],
+            ignores: [
+                '/node_modules/*',
+                'node_modules/*',
+                'dist/*',
+                '/dist/*',
+                '.*/*',
+            ],
         },
     ]
 }
