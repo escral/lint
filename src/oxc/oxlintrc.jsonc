@@ -1,0 +1,65 @@
+{
+    "$schema": "../../node_modules/oxlint/configuration_schema.json",
+    "plugins": [
+        // Default plugins:
+        "eslint",
+        "typescript",
+        "unicorn",
+        "oxc",
+        // Additional plugins:
+        "vue",
+        "import"
+    ],
+    "categories": {
+        "correctness": "error"
+    },
+    "ignorePatterns": [
+        "node_modules/*",
+        "dist/*",
+        ".*/*"
+    ],
+    "rules": {
+        "curly": [ "error", "all" ], // Enforce consistent brace style for all control statements
+        "no-console": [ "warn", { "allow": [ "warn", "error" ] } ],
+        // eslint
+        "eslint/no-var": "error",
+        "eslint/prefer-const": "error",
+        "eslint/prefer-rest-params": "error",
+        "eslint/prefer-spread": "error", // Disallow .log()
+        // import
+        "import/newline-after-import": [ "error" ], // @todo Not implemented (see oxfmt)
+        // vue
+        "vue/define-emits-declaration": "error",
+        "vue/define-props-declaration": "error",
+        "vue/no-import-compiler-macros": "error",
+        "vue/no-export-in-script-setup": "error",
+        "vue/require-typed-ref": "error",
+        // typescript
+        "typescript/consistent-type-imports": "error",
+        "typescript/no-namespace": "error",
+        "typescript/no-require-imports": "error",
+        "typescript/no-unnecessary-type-constraint": "error",
+        "typescript/no-empty-object-type": "error",
+        "typescript/no-unsafe-function-type": "error",
+        "typescript/adjacent-overload-signatures": "error",
+        "typescript/typescript/ban-ts-comment": [
+            "error",
+            {
+                "ts-expect-error": "allow-with-description",
+                "ts-ignore": "allow-with-description",
+                "ts-nocheck": true,
+                "ts-check": false
+            }
+        ]
+        //        // "@typescript-eslint/explicit-member-accessibility" // @todo Not implemented. Maybe not needed
+        //        "import-newlines/enforce": [
+        //            "error",
+        //            {
+        //                "items": 4,
+        //                "max-len": 120,
+        //                "semi": false
+        //            }
+        //        ]
+        //        "@stylistic/ts/type-annotation-spacing": "error", // @todo use oxfmt
+    }
+}

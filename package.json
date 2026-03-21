@@ -6,7 +6,8 @@
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
     "files": [
-        "dist"
+        "dist",
+        "src/oxc"
     ],
     "publishConfig": {
         "access": "public"
@@ -16,10 +17,17 @@
             "types": "./dist/index.d.ts",
             "import": "./dist/index.mjs",
             "require": "./dist/index.js"
-        }
+        },
+        "./eslint": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.js"
+        },
+        "./oxc/oxlintrc.jsonc": "./src/oxc/oxlintrc.jsonc",
+        "./oxc/oxfmtrc.json": "./src/oxc/oxfmtrc.json"
     },
     "scripts": {
-        "pub": "yarn build && npx new-version -s && npm publish --access public",
+        "release": "yarn build && npx new-version -s && npm publish --access public",
         "build": "tsup src/index.ts --format cjs,esm --dts --clean --external vue-eslint-parser"
     },
     "devDependencies": {
@@ -29,7 +37,7 @@
         "tsup": "^8.4.0",
         "vue": "^3.5.8"
     },
-    "peerDependencies": {
+    "optionalDependencies": {
         "vue": "^3"
     },
     "dependencies": {
