@@ -1,106 +1,65 @@
 {
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": [
-    "vue"
-  ],
+    "$schema": "./node_modules/oxlint/configuration_schema.json",
+    "plugins": [
+        // Default plugins:
+        "eslint",
+        "typescript",
+        "unicorn",
+        "oxc",
+        // Additional plugins:
+        "vue",
+        "import"
+    ],
     "categories": {
-    "correctness": "warn"
-  },
-  "ignorePatterns": [
-    "node_modules/*",
-    "dist/*",
-    ".*/*"
-  ],
-  "rules": {
-    "vue/no-deprecated-destroyed-lifecycle": "error",
-    "vue/no-export-in-script-setup": "error",
-    "vue/no-lifecycle-after-await": "error",
-    "vue/prefer-import-from-vue": "error",
-    "vue/valid-define-emits": "error",
-    "vue/valid-define-props": "error",
-    "vue/no-multiple-slot-args": "warn",
-    "no-array-constructor": "error",
-    "@typescript-eslint/no-duplicate-enum-values": "error",
-    "@typescript-eslint/no-empty-object-type": "error",
-    "@typescript-eslint/no-extra-non-null-assertion": "error",
-    "@typescript-eslint/no-misused-new": "error",
-    "@typescript-eslint/no-namespace": "error",
-    "@typescript-eslint/no-non-null-asserted-optional-chain": "error",
-    "@typescript-eslint/no-require-imports": "error",
-    "@typescript-eslint/no-this-alias": "error",
-    "@typescript-eslint/no-unnecessary-type-constraint": "error",
-    "@typescript-eslint/no-unsafe-declaration-merging": "error",
-    "@typescript-eslint/no-unsafe-function-type": "error",
-    "no-unused-expressions": "error",
-    "no-unused-vars": "warn",
-    "@typescript-eslint/no-wrapper-object-types": "error",
-    "@typescript-eslint/prefer-as-const": "error",
-    "@typescript-eslint/prefer-namespace-keyword": "error",
-    "@typescript-eslint/triple-slash-reference": "error",
-    "vue/define-emits-declaration": [
-      "warn"
-    ],
-    "vue/define-props-declaration": [
-      "error"
-    ],
-//    "import-newlines/enforce": [
-//      "error",
-//      {
-//        "items": 4,
-//        "max-len": 120,
-//        "semi": false
-//      }
-//    ],
-    "no-empty-function": [
-      "warn"
-    ],
-//    "@stylistic/ts/type-annotation-spacing": "error",
-    "curly": [
-      "error",
-      "all"
-    ],
-    "no-console": "off",
-    "@typescript-eslint/explicit-member-accessibility": "warn",
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-var-requires": "off",
-    "@typescript-eslint/ban-ts-comment": "off"
-  },
-  "overrides": [
-    {
-      "files": [
-        "**/*.ts",
-        "**/*.tsx",
-        "**/*.mts",
-        "**/*.cts",
-        "**/*.vue"
-      ],
-      "rules": {
-        "constructor-super": "off",
-        "no-class-assign": "off",
-        "no-const-assign": "off",
-        "no-dupe-class-members": "off",
-        "no-dupe-keys": "off",
-        "no-func-assign": "off",
-        "no-import-assign": "off",
-        "no-new-native-nonconstructor": "off",
-        "no-obj-calls": "off",
-        "no-redeclare": "off",
-        "no-setter-return": "off",
-        "no-this-before-super": "off",
-        "no-unsafe-negation": "off",
-        "no-var": "error",
-        "prefer-const": "error",
-        "prefer-rest-params": "error",
-        "prefer-spread": "error"
-      }
+        "correctness": "error"
     },
-    {
-      "files": [
-        "**/*.{ts,tsx,vue}"
-      ],
-      "rules": {
-        "@typescript-eslint/consistent-type-imports": "error"
-      }
+    "ignorePatterns": [
+        "node_modules/*",
+        "dist/*",
+        ".*/*"
+    ],
+    "rules": {
+        "curly": [ "error", "all" ], // Enforce consistent brace style for all control statements
+        "no-console": [ "warn", { "allow": [ "warn", "error" ] } ],
+        // eslint
+        "eslint/no-var": "error",
+        "eslint/prefer-const": "error",
+        "eslint/prefer-rest-params": "error",
+        "eslint/prefer-spread": "error", // Disallow .log()
+        // import
+        "import/newline-after-import": [ "error" ], // @todo Not implemented (see oxfmt)
+        // vue
+        "vue/define-emits-declaration": "error",
+        "vue/define-props-declaration": "error",
+        "vue/no-import-compiler-macros": "error",
+        "vue/no-export-in-script-setup": "error",
+        "vue/require-typed-ref": "error",
+        // typescript
+        "typescript/consistent-type-imports": "error",
+        "typescript/no-namespace": "error",
+        "typescript/no-require-imports": "error",
+        "typescript/no-unnecessary-type-constraint": "error",
+        "typescript/no-empty-object-type": "error",
+        "typescript/no-unsafe-function-type": "error",
+        "typescript/adjacent-overload-signatures": "error",
+        "typescript/typescript/ban-ts-comment": [
+            "error",
+            {
+                "ts-expect-error": "allow-with-description",
+                "ts-ignore": "allow-with-description",
+                "ts-nocheck": true,
+                "ts-check": false
+            }
+        ]
+        //        // "@typescript-eslint/explicit-member-accessibility" // @todo Not implemented. Maybe not needed
+        //        "import-newlines/enforce": [
+        //            "error",
+        //            {
+        //                "items": 4,
+        //                "max-len": 120,
+        //                "semi": false
+        //            }
+        //        ]
+        //        "@stylistic/ts/type-annotation-spacing": "error", // @todo use oxfmt
     }
-  ]
 }

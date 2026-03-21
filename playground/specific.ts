@@ -1,5 +1,2 @@
-import { watch } from 'vue'
-
-watch(() => 1, () => {
-    console.log('watched')
-})
+var args = [1, 2, 3, 4]
+Math.max.apply(Math, args)
