@@ -1,3 +1,9 @@
-<script setup lang="ts">
-const emit = defineEmits(["change", "update"])
+<template>
+    <div></div>
+</template>
+<script setup>
+const some:string = "hello world";
+
+console.warn(some)
 </script>
+<style></style>
