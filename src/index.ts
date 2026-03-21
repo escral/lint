@@ -172,11 +172,11 @@ const config = async (options: {
                     extraFileExtensions: ['.vue'],
                     ecmaVersion: 2020,
                     sourceType: 'module',
-                }
+                },
             },
             rules: {
                 '@typescript-eslint/consistent-type-imports': 'error',
-            }
+            },
         },
         ({
             plugins: {

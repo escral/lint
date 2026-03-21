@@ -7,6 +7,9 @@
 node_modules/
 dist/
 
+# Regenerate with: yarn lint:oxlint:sync
+.oxlintrc.migrated.json
+
 # Compiled Java class files
 *.class
 
