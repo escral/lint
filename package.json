@@ -24,7 +24,6 @@
     },
     "devDependencies": {
         "@escral/versioning": "^1.5",
-        "@oxlint/migrate": "^1.56.0",
         "oxfmt": "^0.41.0",
         "oxlint": "^1.56.0",
         "tsup": "^8.4.0",
