@@ -1,3 +1,5 @@
 {
-    "extends": ["./src/oxc/oxlintrc.jsonc"]
+    "extends": [
+        "./src/oxc/oxlintrc.jsonc"
+    ]
 }
